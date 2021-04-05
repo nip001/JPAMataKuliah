@@ -16,6 +16,7 @@ import com.kuliah.main.entity.Pertanyaan;
 import com.kuliah.main.entity.PlotMataKuliah;
 import com.kuliah.main.entity.Soal;
 import com.kuliah.main.repository.PlotMataKuliahRepository;
+import com.kuliah.main.repository.SoalRepository;
 
 @SpringBootApplication
 public class MataKuliahApplication implements CommandLineRunner{
@@ -23,6 +24,10 @@ public class MataKuliahApplication implements CommandLineRunner{
 	
 	@Autowired
 	private PlotMataKuliahRepository plotMK;
+	
+	@Autowired
+	private SoalRepository soalRepo;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(MataKuliahApplication.class, args);
 	}
@@ -35,41 +40,41 @@ public class MataKuliahApplication implements CommandLineRunner{
 		
 		
 		Mahasiswa mahasiswa = new Mahasiswa();
-		mahasiswa.setNamaMahasiswa("Dewabrata");
+		mahasiswa.setNamaMahasiswa("Aqil");
 		mahasiswa.setJenisKelamin("Pria");
-		mahasiswa.setNim("12345");
-		mahasiswa.setPassword("rahasia");
+		mahasiswa.setNim("67890");
+		mahasiswa.setPassword("gelap");
 		
 		plotMK.setMahasiswa(mahasiswa);
 		
 		Dosen dosen = new Dosen();
-		dosen.setNamaDosen("Chelsea Islan");
-		dosen.setUsername("chelsea");
-		dosen.setPassword("oppo");
+		dosen.setNamaDosen("Chelsea Monica");
+		dosen.setUsername("monica");
+		dosen.setPassword("catur");
 		plotMK.setDosen(dosen);
 		
 		MataKuliah matakuliah = new MataKuliah();
-		matakuliah.setNamaMataKuliah("Psikologi Terapan");
+		matakuliah.setNamaMataKuliah("Strategy Catur Terapan");
 		plotMK.setMatakuliah(matakuliah);
 		
 		List<Soal> lstSoal = new ArrayList<Soal>();
 		
 		Soal soal1 = new Soal();
-		soal1.setNamaSoal("Soal Percintaan");
+		soal1.setNamaSoal("Skakmat Aqil");
 		soal1.setStatus(1);
 		
 		Nilai nilai = new Nilai();
-		nilai.setNilai("100");
+		nilai.setNilai("80");
 		soal1.setNilai(nilai);
 		
 		Pertanyaan pertanyaan1 = new Pertanyaan();
-		pertanyaan1.setPertanyaan("Siapa cinta pertama Aqil");
+		pertanyaan1.setPertanyaan("Siapa Dewa Kipas");
 		pertanyaan1.setJawaban1("Sidiq");
-		pertanyaan1.setJawaban2("Hanif");
+		pertanyaan1.setJawaban2("Dadang");
 		pertanyaan1.setJawaban3("Jouzu");
 		pertanyaan1.setJawaban4("Tidak ada yang benar");
-		pertanyaan1.setJawabanBenar("4");
-		pertanyaan1.setStatusGambar("");
+		pertanyaan1.setJawabanBenar("2");
+		pertanyaan1.setStatusGambar("https://akcdn.detik.net.id/community/media/visual/2021/03/19/dadang-subur-dewa-kipas-1_169.jpeg");
 		
 		List<Pertanyaan> lstPertanyaan = new ArrayList<Pertanyaan>();
 		lstPertanyaan.add(pertanyaan1);
@@ -81,6 +86,11 @@ public class MataKuliahApplication implements CommandLineRunner{
 		
 		plotMK.setLstSoal(lstSoal);
 		this.plotMK.save(plotMK);
+		
+		
+		Soal soalx = this.soalRepo.findByNamaSoal("Soal Percintaan");
+		
+		System.out.println(soalx.getNamaSoal());
 	}
 
 }
