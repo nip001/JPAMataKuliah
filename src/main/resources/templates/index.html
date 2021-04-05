@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${aqil}"> </title>
+</head>
+<body>
+<p th:text="${aqil}"></p>
+<p th:text="${hanif}"></p>
+
+
+<a th:href="@{/hanif(pesan=${hanif})} "> Pindah halaman</a>
+
+
+</body>
+</html>

@@ -36,7 +36,7 @@ public class MataKuliahApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		PlotMataKuliah plotMK = new PlotMataKuliah();
+	/*	PlotMataKuliah plotMK = new PlotMataKuliah();
 		
 		
 		Mahasiswa mahasiswa = new Mahasiswa();
@@ -91,6 +91,8 @@ public class MataKuliahApplication implements CommandLineRunner{
 		Soal soalx = this.soalRepo.findByNamaSoal("Soal Percintaan");
 		
 		System.out.println(soalx.getNamaSoal());
+		
+		*/
 	}
 
 }
