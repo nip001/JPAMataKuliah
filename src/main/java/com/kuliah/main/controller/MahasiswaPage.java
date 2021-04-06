@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.kuliah.main.entity.Mahasiswa;
@@ -40,6 +41,27 @@ public class MahasiswaPage {
 		
 		// buat penampung data mahasiswa di halaman htmlnya
 		this.modelMahasiswa.addMahasiswa(mahasiswa);
+		model.addAttribute("listMahasiswa",modelMahasiswa.getAllMahasiswa());
+		
+		
+		return "view_mahasiswa";
+	}
+	
+	
+	@GetMapping("/mahasiswa/update/{id}")
+	public String viewUpdateMahasiswa(@PathVariable String id, Model model) {
+		
+		Mahasiswa mahasiswa = modelMahasiswa.getMahasiswaById(id);
+		// buat penampung data mahasiswa di halaman htmlnya
+		model.addAttribute("mahasiswa",mahasiswa);
+		
+		return "add_mahasiswa";
+	}
+	
+	@GetMapping("/mahasiswa/delete/{id}")
+	public String deleteMahasiswa(@PathVariable String id, Model model) {
+		
+		this.modelMahasiswa.deleteMahasiswa(id);
 		model.addAttribute("listMahasiswa",modelMahasiswa.getAllMahasiswa());
 		
 		

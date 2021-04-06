@@ -1,6 +1,7 @@
 package com.kuliah.main.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,22 @@ public class ModelMahasiswa  implements ModelMahasiswaInterface{
 		
 		return  this.mahasiswaRepo.save(mahasiswa);
 	
+	}
+
+	@Override
+	public Mahasiswa getMahasiswaById(String id) {
+		// TODO Auto-generated method stub
+		
+		return 	((Mahasiswa)this.mahasiswaRepo.findByIdMahasiswa(Long.parseLong(id)));
+		
+		
+	}
+
+	@Override
+	public void deleteMahasiswa(String id) {
+		// TODO Auto-generated method stub
+		this.mahasiswaRepo.deleteById(Long.parseLong(id));
+		
 	}
 
 }

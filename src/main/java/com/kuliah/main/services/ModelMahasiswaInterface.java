@@ -10,5 +10,7 @@ public interface ModelMahasiswaInterface {
 	public Mahasiswa getMahasiwaByName(String name);
 	
 	public Mahasiswa addMahasiswa(Mahasiswa mahasiswa);
+	public Mahasiswa getMahasiswaById(String id);
+	public void deleteMahasiswa(String id);
 
 }
