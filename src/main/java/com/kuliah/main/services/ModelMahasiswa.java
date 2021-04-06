@@ -26,4 +26,12 @@ public class ModelMahasiswa  implements ModelMahasiswaInterface{
 		return this.mahasiswaRepo.findByNamaMahasiswa(nama);
 	}
 
+	@Override
+	public Mahasiswa addMahasiswa(Mahasiswa mahasiswa) {
+		// TODO Auto-generated method stub
+		
+		return  this.mahasiswaRepo.save(mahasiswa);
+	
+	}
+
 }

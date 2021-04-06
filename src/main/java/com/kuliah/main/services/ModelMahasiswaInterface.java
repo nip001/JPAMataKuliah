@@ -9,5 +9,6 @@ public interface ModelMahasiswaInterface {
 	public List<Mahasiswa> getAllMahasiswa();
 	public Mahasiswa getMahasiwaByName(String name);
 	
+	public Mahasiswa addMahasiswa(Mahasiswa mahasiswa);
 
 }
