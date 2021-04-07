@@ -29,9 +29,8 @@
 
 <div class="mb-3">
   <label for="password" class="form-label">Password</label>
-  <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
+  <input type="password" class="form-control" id="password" placeholder="Password" name="password" th:value="*{password}">
 </div>
-<input type="hidden" th:field="*{idMahasiswa}">
 
  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 </form>
