@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form th:action="@{/pertanyaan/add}" th:object="${pertanyaan}" method="post" enctype="multipart/form-data">
+<form th:action="@{/pertanyaan/vieew}" th:object="${pertanyaan}" method="post" enctype="multipart/form-data">
 <div class="mb-3">
   <label for="nim" class="form-label">Pertanyaan</label>
   <input type="text" class="form-control" id="pertanyaan1" placeholder="Pertanyaan1" th:field="*{pertanyaan1}">
