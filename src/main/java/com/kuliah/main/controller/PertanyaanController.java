@@ -26,9 +26,15 @@ public class PertanyaanController {
 	ModelPertanyaan modelPertanyaan;
 
     private final String UPLOAD_DIR = "./src/main/resources/static/uploads/";
+
+	@GetMapping("/pertanyaan/view")
+	public String viewIndexPertanyaan(Model model) {
+		model.addAttribute("listpertanyaan",modelPertanyaan.getAllPertanyaan());
+		return "view_pertanyaan";
+	}
 	
 	@GetMapping("/pertanyaan/add")
-	public String viewIndexPertanyaan(Model model) {
+	public String viewAddPertanyaan(Model model) {
 		model.addAttribute("pertanyaan",new Pertanyaan());
 		return "add_pertanyaan";
 	}
@@ -44,7 +50,7 @@ public class PertanyaanController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        pertanyaan.setStatusGambar(UPLOAD_DIR + fileName);
+        pertanyaan.setStatusGambar("/uploads/" + fileName);
         this.modelPertanyaan.addPertanyaan(pertanyaan);
 		model.addAttribute("pertanyaan",new Pertanyaan());
 		return "add_pertanyaan";

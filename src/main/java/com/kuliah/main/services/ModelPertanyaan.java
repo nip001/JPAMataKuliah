@@ -1,5 +1,7 @@
 package com.kuliah.main.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class ModelPertanyaan implements ModelPertanyaanInterface{
 	public Pertanyaan addPertanyaan(Pertanyaan pertanyaan) {
 		// TODO Auto-generated method stub
 		return  this.pertanyaanRepo.save(pertanyaan);
+	}
+
+	@Override
+	public List<Pertanyaan> getAllPertanyaan() {
+		// TODO Auto-generated method stub
+		return (List<Pertanyaan>) this.pertanyaanRepo.findAll();
 	}
 
 }
